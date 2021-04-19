@@ -15,12 +15,12 @@ public class building implements subject{
     
     public void changeOption(String options){
         this.options = options;
-        notice();
+        notice(false, true);
     }
     
     public void changeRent(int rent){
-        this.rent += rent;
-        notice();
+        this.rent = rent;
+        notice(true, false);
     }
     
     public void delTenant(String Room){
@@ -29,10 +29,11 @@ public class building implements subject{
         }
     }
     
-    public void notice(){
+    public void notice(boolean rent, boolean options){
         for(int i = 0; i < tenantList.size(); i++){
             tenant nowTenant = tenantList.get(i);
-            nowTenant.update(this.rent, this.options);
+            if(rent == true) nowTenant.update(this.rent, "");
+            if(options == true) nowTenant.update(0, this.options);
         }
     }
     

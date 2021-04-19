@@ -22,8 +22,8 @@ public class tenant implements observer, tenantBehavior{
     }
     
     public void update(int rent, String options){ // update호출 받으면 자신의 월세, 옵션들을 추가함
-        this.myRent = rent;
-        myOptions.add(options);
+        this.myRent += rent;
+        if(!options.equals("")) myOptions.add(options);
     }
     
     public void behavior(){ // 집주인이 call하면 자신의 계약 정보를 부르자
