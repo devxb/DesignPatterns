@@ -34,7 +34,7 @@ public class Friends implements Comparable<Friends>{
         return getName() + " " + getSolvedProb() + " " + getExp();
     }
     
- 
+    @Override
     public int compareTo(Friends F){
         if(this.solvedProb > F.getSolvedProb()) return 1;
         if(this.solvedProb < F.getSolvedProb()) return -1;
